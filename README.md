@@ -30,8 +30,10 @@ peel-swap-frontend/
 ├── package.json
 ├── pnpm-lock.yaml
 └── tsconfig.json
+```
 
 ## 📦 Installation & Running
+
 1. Clone the repository
 ```
 git clone https://github.com/Peel-Swap/peel-swap-landing-frontend
