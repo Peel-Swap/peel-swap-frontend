@@ -1,12 +1,13 @@
 {
-  "name": "vite-template",
+  "name": "peel-swap-frontend",
   "private": true,
   "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "vite build && gh-pages -d dist"
   },
   "dependencies": {
     "@coral-xyz/anchor": "^0.31.1",
@@ -27,6 +28,7 @@
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.7.0",
     "autoprefixer": "^10.4.21",
+    "gh-pages": "^6.3.0",
     "globals": "^16.3.0",
     "postcss": "^8.5.3",
     "typescript": "~5.8.3",
