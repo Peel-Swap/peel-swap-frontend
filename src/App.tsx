@@ -1,4 +1,5 @@
 import { Github, Twitter, ExternalLink, Zap, Bot } from 'lucide-react'
+import './App.css'
 
 function App() {
   return (
@@ -228,7 +229,7 @@ function App() {
           
           <div className="flex items-center space-x-6">
             <a
-              href="https://github.com"
+              href="https://github.com/Peel-Swap"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-all duration-300 transform hover:scale-110"
@@ -236,7 +237,7 @@ function App() {
               <Github size={20} />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://x.com/PeelSwap"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-all duration-300 transform hover:scale-110"
@@ -246,25 +247,6 @@ function App() {
           </div>
         </div>
       </footer>
-
-      <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        
-        .animate-scroll {
-          animation: scroll 20s linear infinite;
-        }
-        
-        .animate-scroll:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
     </div>
   )
 }
