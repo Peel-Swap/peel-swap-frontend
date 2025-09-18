@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Wallet, ExternalLink, Menu, X } from 'lucide-react';
+import ConnectWalletButton from './pontem_wallet/ConnectWalletButton';
 
 interface AppPageProps {
   onBack: () => void;
@@ -9,25 +10,7 @@ type TabType = 'peel' | 'swap' | 'liquidity' | 'stake' | 'portfolio';
 
 const AppPage: React.FC<AppPageProps> = ({ onBack }) => {
   const [activeTab, setActiveTab] = useState<TabType>('peel');
-  const [isWalletConnected, setIsWalletConnected] = useState(false);
-  const [walletAddress, setWalletAddress] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const connectWallet = () => {
-    // Simulate wallet connection
-    const mockAddress = '0x' + Math.random().toString(16).substr(2, 40);
-    setWalletAddress(mockAddress);
-    setIsWalletConnected(true);
-  };
-
-  const disconnectWallet = () => {
-    setIsWalletConnected(false);
-    setWalletAddress('');
-  };
-
-  const formatAddress = (address: string) => {
-    return `${address.slice(0, 6)}...${address.slice(-4)}`;
-  };
 
   const getTabDisplayName = (tab: TabType) => {
     const names = {
@@ -141,24 +124,7 @@ const AppPage: React.FC<AppPageProps> = ({ onBack }) => {
 
           {/* Wallet Connection */}
           <div className="flex items-center space-x-2 md:space-x-4 min-h-[40px] md:min-h-[48px]">
-            {isWalletConnected ? (
-              <button
-                onClick={disconnectWallet}
-                className="px-2 md:px-4 py-1 md:py-2 bg-white/10 rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300"
-              >
-                <span className="text-white font-medium text-xs md:text-sm">{formatAddress(walletAddress)}</span>
-              </button>
-            ) : (
-              <button
-                onClick={connectWallet}
-                className="bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 px-3 md:px-6 py-1 md:py-2 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 flex items-center space-x-1 md:space-x-2 shadow-lg text-xs md:text-sm"
-              >
-                <Wallet size={12} className="md:hidden" />
-                <Wallet size={16} className="hidden md:block" />
-                <span className="hidden sm:inline">Connect Wallet</span>
-                <span className="sm:hidden">Connect</span>
-              </button>
-            )}
+            <ConnectWalletButton />
           </div>
         </div>
         
@@ -217,7 +183,7 @@ const AppPage: React.FC<AppPageProps> = ({ onBack }) => {
           {activeTab === 'peel' && (
             <div className="text-center">
               <h1 className="text-4xl font-bold text-white mb-8">PEEL Token</h1>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 p-8 max-w-2xl mx-auto">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 p-8 max-w-2xl mx-auto mb-8">
                 <h2 className="text-2xl font-semibold text-white mb-4">PEEL Token Information</h2>
                 <p className="text-white/80 mb-6">
                   PEEL token unlocks advanced autotrading capabilities and gives you access to sophisticated trading strategies.
@@ -233,6 +199,9 @@ const AppPage: React.FC<AppPageProps> = ({ onBack }) => {
                   </div>
                 </div>
               </div>
+              
+              {/* Wallet Demo Component */}
+              <ConnectWalletButton />
             </div>
           )}
 

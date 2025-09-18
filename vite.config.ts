@@ -14,7 +14,18 @@ export default defineConfig({
   plugins: [react(), tailwindcss(), nodePolyfills()],
   resolve: {
     alias: {
-      "@": __dirname
+      "@": __dirname,
+      "@cedra-labs/wallet-adapter-react": __dirname + "/node_modules/@cedra-labs/wallet-adapter/packages/wallet-adapter-react/src",
+      "@cedra-labs/wallet-adapter-core": __dirname + "/node_modules/@cedra-labs/wallet-adapter/packages/wallet-adapter-core/src",
     },
   },
+  server: {
+    proxy: {
+      '/api/cedra': {
+        target: 'https://devnet.cedra.dev',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/cedra/, '/v1')
+      }
+    }
+  }
 })

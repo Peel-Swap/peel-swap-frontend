@@ -1,13 +1,25 @@
 import { Github, Twitter, ExternalLink, Zap, Bot } from 'lucide-react'
 import { useState } from 'react'
 import AppPage from './AppPage'
+import { WalletProvider } from './pontem_wallet/WalletProvider'
 import './App.css'
 
 function App() {
   const [showApp, setShowApp] = useState(false);
 
   if (showApp) {
-    return <AppPage onBack={() => setShowApp(false)} />;
+    const handleWalletError = (error: Error) => {
+      console.error('Wallet error:', error);
+    };
+
+    return (
+      <WalletProvider 
+        autoConnect={true}
+        onError={handleWalletError}
+      >
+        <AppPage onBack={() => setShowApp(false)} />
+      </WalletProvider>
+    );
   }
 
   return (
