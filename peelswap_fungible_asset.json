@@ -3,8 +3,8 @@
   "symbol": "PEEL",
   "decimals": 8,
   "description": "PEEL is the native token of the Peelswap protocol - a decentralized exchange built on Cedra blockchain",
-  "website": "https://peelswap.xyz",
-  "logo": "https://peelswap.xyz/peelswap_logo.png",
+  "project_uri": "https://peelswap.xyz",
+  "image": "https://peelswap.xyz/peelswap_logo.png",
   "twitter": "https://twitter.com/peelswap",
   "contracts": {
     "devnet": {
